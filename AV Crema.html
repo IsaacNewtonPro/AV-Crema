@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AV Crema Facial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header img {
+            width: 100px;
+            height: 100px;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            padding: 20px;
+            display: none; /* Secciones ocultas por defecto */
+        }
+
+        .container.active {
+            display: block; /* Mostrar la sección activa */
+        }
+
+        .product-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .product-section img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .details-section {
+            margin-top: 20px;
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            display: none; /* Detalles ocultos inicialmente */
+        }
+
+        .details-section p {
+            font-size: 1.1em;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo para el texto BIENVENIDOS */
+        .welcome-text {
+            font-size: 2.5em; /* Tamaño del texto */
+            color: #ff5722; /* Color del texto */
+            font-weight: bold; /* Hacer el texto más grueso */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para dar más impacto */
+        }
+
+        .welcome-text span {
+            color: #4CAF50; /* Color diferente para la segunda palabra */
+        }
+    </style>
+
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.container');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function toggleDetails() {
+            var details = document.getElementById('detalles');
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>AV Crema Facial</h1>
+        <img src="logo.png" alt="Logo AV Crema Facial">
+    </header>
+
+    <nav>
+        <a href="javascript:void(0)" onclick="showSection('inicio')">Inicio</a>
+        <a href="javascript:void(0)" onclick="showSection('nosotros')">Más sobre nosotros</a>
+        <a href="javascript:void(0)" onclick="showSection('productos')">Productos</a>
+    </nav>
+
+    <div id="inicio" class="container active">
+        <h2 class="welcome-text">¡<span>BIENVENIDOS</span>!</h2>
+        <p>Tu aliado en el cuidado de la piel. Conoce más sobre nuestros productos naturales que te ayudarán a mantener tu piel fresca y saludable.</p>
+    </div>
+
+    <div id="nosotros" class="container">
+        <h2>Más sobre nosotros</h2>
+        <p><strong>Número de teléfono:</strong> +502 48844038</p>
+        <p><strong>Redes sociales:</strong> Instagram: <a href="https://instagram.com/AVCrema" target="_blank">@AVCrema</a></p>
+        <p>Somos una pequeña empresa que se dedica a la fabricación de cremas faciales para el cuidado de tu piel. Contamos con personal de alta experiencia en el tema de salud.</p>
+    </div>
+
+    <div id="productos" class="container">
+        <h2>Productos Disponibles</h2>
+        <section class="product-section">
+            <div>
+                <h3>Crema Facial</h3>
+                <p>Crema a base de Aloe Vera para una piel suave y saludable.</p>
+                <button onclick="toggleDetails()">Ver detalles</button>
+            </div>
+            <div>
+                <img src="imagen-crema.jpg" alt="Crema Facial">
+            </div>
+        </section>
+
+        <section id="detalles" class="details-section">
+            <h3>Detalles del Producto</h3>
+            <p>
+                Crea una barrera contra lo negativo con nuestra crema a base de Aloe Vera. Dale más suavidad a tu piel, retrasa las arrugas y nutre profundamente con nuestra fórmula especial.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>AV Crema Facial &copy; 2024</p>
+    </footer>
+
+</body>
+</html>
